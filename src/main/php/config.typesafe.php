@@ -29,30 +29,39 @@ $config = array();
 if (file_exists('config.application.php')) {
     require('config.application.php');
 }
+if (file_exists('../../src/main/php/config.application.php')) {  // maven mode
+    require('../../src/main/config.application.php');
+}
 if (file_exists('config.application.local.php')) {
     require('config.application.local.php');
+}
+if (file_exists('../../src/main/php/config.application.local.php')) {  // maven mode
+    require('../../src/main/config.application.local.php');
 }
 
 
 // initialize the application entry point
-if (!isset($config['entryPoint'])) {
-    throw new Exception('EntryPoint not configured');
+if (!isset($config['applicationModule'])) {
+    throw new Exception('ApplicationModule not configured');
 }
 if (!isset($config['applicationPath'])) {
     throw new Exception('ApplicationPath not configured');
 }
 
-require($config['applicationPath'].'/'.$config['entryPoint'].'.php');
-$entryPoint = new $config['entryPoint']($config);
+require($config['applicationPath'].'/'.$config['applicationModule'].'.php');
+$applicationModule = new $config['applicationModule']($config);
 
-if (!($entryPoint instanceof ApplicationEntryPoint)) {
-    throw new Exception('Configured EntryPoint is not an EntryPoint');
+if (!($applicationModule instanceof ApplicationEntryPoint)) {
+    throw new Exception('Configured ApplicationModule is not an ApplicationEntryPoint');
 }
 
-$config['applicationModule'] = $entryPoint;
+$config['applicationModule'] = $applicationModule;
 
 // overwrite with local changes
 if (file_exists('config.typesafe.local.php')) {
     require('config.typesafe.local.php');
+}
+if (file_exists('../../src/main/php/config.typesafe.local.php')) {  // maven mode
+    require('../../src/main/php/config.typesafe.local.php');
 }
 
