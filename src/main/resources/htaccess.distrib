@@ -1,0 +1,10 @@
+# we require mod_rewrite
+RewriteEngine on
+
+# base path for to the resources directory
+RewriteBase /
+
+# dispatch index and *.html files
+RewriteRule ^$              TypeSafe/dispatcher.php?uri=  [QSA,L]
+RewriteRule ^(.*)\.html$    TypeSafe/dispatcher.php?uri=$1.html  [QSA,L]
+

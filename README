@@ -1,0 +1,6 @@
+TypeSafe
+================================================================================
+
+Just another PHP framwork. This is based on pinjector and uses it's IoC (DI)
+and AOP capabilities to provide a solid, typesafe and testable framework.
+

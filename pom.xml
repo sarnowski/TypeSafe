@@ -1,0 +1,100 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.github.sarnowski</groupId>
+        <artifactId>php-parent</artifactId>
+        <version>0.2.1</version>
+    </parent>
+
+    <groupId>com.github.sarnowski</groupId>
+    <artifactId>TypeSafe</artifactId>
+    <version>0.1-SNAPSHOT</version>
+
+    <name>TypeSafe</name>
+    <url>http://www.typesafe.info/</url>
+
+    <packaging>jar</packaging>
+
+    <developers>
+        <developer>
+            <id>sarnowski</id>
+            <name>Tobias Sarnowski</name>
+            <email>sarnowski@new-thoughts.org</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/sarnowski/${project.artifactId}.git</connection>
+        <developerConnection>scm:git:git@github.com:sarnowski/${project.artifactId}.git</developerConnection>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.github.sarnowski</groupId>
+            <artifactId>TypeSafe-components</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.sarnowski</groupId>
+            <artifactId>TypeSafe-core</artifactId>
+            <version>0.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.sarnowski</groupId>
+            <artifactId>TypeSafe-form</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.sarnowski</groupId>
+            <artifactId>TypeSafe-security</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.sarnowski</groupId>
+            <artifactId>TypeSafe-validation</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.phpmaven</groupId>
+                <artifactId>maven-php-plugin</artifactId>
+                <configuration>
+                    <excludeFromValidation>
+                        <file>config.typesafe.php</file>
+                    </excludeFromValidation>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.2-beta-5</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>${project.basedir}/assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>php-zip</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>assembly</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>sarnowski.github.com</id>
+            <name>Tobias Sarnowski's Maven Repository</name>
+            <url>http://sarnowski.github.com/repository</url>
+        </repository>
+    </repositories>
+</project>
