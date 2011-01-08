@@ -51,8 +51,8 @@ if (!isset($config['applicationPath'])) {
 require($config['applicationPath'].'/'.$config['applicationModule'].'.php');
 $applicationModule = new $config['applicationModule']($config);
 
-if (!($applicationModule instanceof ApplicationEntryPoint)) {
-    throw new Exception('Configured ApplicationModule is not an ApplicationEntryPoint');
+if (!($applicationModule instanceof Module)) {
+    throw new Exception('Configured ApplicationModule is not a Module');
 }
 
 $config['applicationModule'] = $applicationModule;
