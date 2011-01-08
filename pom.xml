@@ -33,27 +33,32 @@
         <dependency>
             <groupId>com.github.sarnowski</groupId>
             <artifactId>TypeSafe-components</artifactId>
-            <version>0.1.0</version>
+            <version>0.2.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.sarnowski</groupId>
             <artifactId>TypeSafe-core</artifactId>
-            <version>0.6.1</version>
+            <version>0.7.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.sarnowski</groupId>
             <artifactId>TypeSafe-form</artifactId>
-            <version>0.2.0</version>
+            <version>0.3.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.sarnowski</groupId>
             <artifactId>TypeSafe-security</artifactId>
-            <version>0.2.0</version>
+            <version>0.3.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.sarnowski</groupId>
             <artifactId>TypeSafe-validation</artifactId>
-            <version>0.1.1</version>
+            <version>0.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.sarnowski</groupId>
+            <artifactId>pinjector</artifactId>
+            <version>0.6.1</version>
         </dependency>
     </dependencies>
 
