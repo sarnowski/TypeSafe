@@ -17,7 +17,7 @@
 
 require_once('TypeSafe/utilities/helpers.php');
 require_once('TypeSafe/ServletModule.php');
-require_once('TypeSafe/config/PhpConfigurationModule.php');
+require_once('TypeSafe/config/ArrayConfigurationModule.php');
 require_once('TypeSafe/logging/RequestLoggerModule.php');
 require_once('TypeSafe/session/PhpSessionModule.php');
 require_once('TypeSafe/validation/ValidationModule.php');
@@ -27,6 +27,8 @@ require_once('TypeSafe/form/FormModule.php');
 class TypeSafeModule extends ServletModule {
 
     function configuration() {
+	global $config;
+	$this->install(new ArrayConfigurationModule($config));
         $this->install(new RequestLoggerModule());
         session_start();
         $this->install(new PhpSessionModule());
