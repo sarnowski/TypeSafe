@@ -38,12 +38,12 @@
         <dependency>
             <groupId>com.github.sarnowski</groupId>
             <artifactId>TypeSafe-core</artifactId>
-            <version>0.5.1</version>
+            <version>0.6.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.sarnowski</groupId>
             <artifactId>TypeSafe-form</artifactId>
-            <version>0.1.0</version>
+            <version>0.2.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.sarnowski</groupId>
@@ -53,7 +53,7 @@
         <dependency>
             <groupId>com.github.sarnowski</groupId>
             <artifactId>TypeSafe-validation</artifactId>
-            <version>0.1.0</version>
+            <version>0.1.1</version>
         </dependency>
     </dependencies>
 
