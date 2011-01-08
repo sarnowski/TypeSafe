@@ -25,6 +25,18 @@
 // will be filled
 $config = array();
 
+// default configurations
+$config['applicationPath'] = 'application';
+$config['applicationModule'] = 'ApplicationModule';
+
+// overwrite with local changes
+if (file_exists('config.typesafe.local.php')) {
+    require('config.typesafe.local.php');
+}
+if (file_exists('../../../src/main/php/config.typesafe.local.php')) {  // maven mode
+    require('../../../src/main/php/config.typesafe.local.php');
+}
+
 // load the application config
 if (file_exists('config.application.php')) {
     require('config.application.php');
@@ -39,29 +51,13 @@ if (file_exists('../../../src/main/php/config.application.local.php')) {  // mav
     require('../../../src/main/php/config.application.local.php');
 }
 
-
-// initialize the application entry point
-if (!isset($config['applicationModule'])) {
-    throw new Exception('ApplicationModule not configured');
-}
-if (!isset($config['applicationPath'])) {
-    throw new Exception('ApplicationPath not configured');
-}
-
+// load the application module
 require($config['applicationPath'].'/'.$config['applicationModule'].'.php');
-$applicationModule = new $config['applicationModule']($config);
+$applicationModule = new $config['applicationModule']();
 
 if (!($applicationModule instanceof Module)) {
     throw new Exception('Configured ApplicationModule is not a Module');
 }
 
 $config['applicationModule'] = $applicationModule;
-
-// overwrite with local changes
-if (file_exists('config.typesafe.local.php')) {
-    require('config.typesafe.local.php');
-}
-if (file_exists('../../../src/main/php/config.typesafe.local.php')) {  // maven mode
-    require('../../../src/main/php/config.typesafe.local.php');
-}
 
