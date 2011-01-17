@@ -27,8 +27,9 @@ require_once('TypeSafe/form/FormModule.php');
 class TypeSafeModule extends ServletModule {
 
     function configuration() {
-	global $config;
-	$this->install(new ArrayConfigurationModule($config));
+        global $config;
+        if (!defined('BASEURL')) define('BASEURL', $config['baseurl']);
+	    $this->install(new ArrayConfigurationModule($config));
         $this->install(new RequestLoggerModule());
         session_start();
         $this->install(new PhpSessionModule());

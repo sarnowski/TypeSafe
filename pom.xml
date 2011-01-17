@@ -23,6 +23,14 @@
             <email>sarnowski@new-thoughts.org</email>
         </developer>
     </developers>
+    
+    <contributors>
+        <contributor>
+            <name>Dominik Eckelmann</name>
+            <email>deckelmann@gmail.com</email>
+            <timezone>+1</timezone>
+        </contributor>
+    </contributors>
 
     <scm>
         <connection>scm:git:git://github.com/sarnowski/${project.artifactId}.git</connection>

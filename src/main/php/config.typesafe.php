@@ -29,6 +29,8 @@ $config = array();
 $config['applicationPath'] = 'application';
 $config['applicationModule'] = 'ApplicationModule';
 
+$config['baseurl'] = '';
+
 // overwrite with local changes
 if (include_file_exists('config.typesafe.local.php')) {
     require('config.typesafe.local.php');

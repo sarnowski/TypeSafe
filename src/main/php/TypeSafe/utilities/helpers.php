@@ -35,14 +35,6 @@ function debug($item) {
     ob_flush();
 }
 
-function findBaseUrl($subRequest) {
-    if (empty($subRequest)) {
-        return $_SERVER['REQUEST_URI'];
-    }
-    $pos = strpos($_SERVER['REQUEST_URI'], $subRequest);
-    return substr($_SERVER['REQUEST_URI'], 0, $pos);
-}
-
 function url($url, $css = false) {
     if (substr($url, 0, 1) == '/') {
         $url = BASEURL.$url;
