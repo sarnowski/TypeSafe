@@ -30,7 +30,7 @@ $config['applicationPath'] = 'application';
 $config['applicationModule'] = 'ApplicationModule';
 
 // overwrite with local changes
-if (file_exists('config.typesafe.local.php')) {
+if (include_file_exists('config.typesafe.local.php')) {
     require('config.typesafe.local.php');
 }
 if (file_exists('../../../src/main/php/config.typesafe.local.php')) {  // maven mode
@@ -38,13 +38,13 @@ if (file_exists('../../../src/main/php/config.typesafe.local.php')) {  // maven 
 }
 
 // load the application config
-if (file_exists('config.application.php')) {
+if (include_file_exists('config.application.php')) {
     require('config.application.php');
 }
 if (file_exists('../../../src/main/php/config.application.php')) {  // maven mode
     require('../../../src/main/php/config.application.php');
 }
-if (file_exists('config.application.local.php')) {
+if (include_file_exists('config.application.local.php')) {
     require('config.application.local.php');
 }
 if (file_exists('../../../src/main/php/config.application.local.php')) {  // maven mode
