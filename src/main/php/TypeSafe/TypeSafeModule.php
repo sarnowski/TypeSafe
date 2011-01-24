@@ -18,7 +18,7 @@
 require_once('TypeSafe/utilities/helpers.php');
 require_once('TypeSafe/ServletModule.php');
 require_once('TypeSafe/config/ArrayConfigurationModule.php');
-require_once('TypeSafe/logging/RequestLoggerModule.php');
+require_once('TypeSafe/logging/FileLoggerModule.php');
 require_once('TypeSafe/session/PhpSessionModule.php');
 require_once('TypeSafe/validation/ValidationModule.php');
 require_once('TypeSafe/components/ComponentsModule.php');
@@ -30,7 +30,7 @@ class TypeSafeModule extends ServletModule {
         global $config;
         if (!defined('BASEURL')) define('BASEURL', $config['baseurl']);
 	    $this->install(new ArrayConfigurationModule($config));
-        $this->install(new RequestLoggerModule());
+        $this->install(new FileLoggerModule());
         session_start();
         $this->install(new PhpSessionModule());
 
